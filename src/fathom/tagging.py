@@ -181,8 +181,8 @@ def _sum(before: dict, now: dict) -> dict:
 
 
 def render(trajectory: dict, steps: list[int] | None = None, place: tuple[int, int] = (0, 1)) -> str:
-    """What the reader is handed: what the agent was asked, then each turn's parts as they are
-    embedded (its own text whole, each tool result cut to its first and last characters). With
+    """What the reader is handed: what the agent was asked, then each turn's parts as
+    `turn.text` has them (its own text whole, each tool result cut to its first and last characters). With
     `steps`, those turns only, and a word that the file is one part (`place`) of several."""
     asked = next((st.get("message") or "" for st in trajectory.get("steps") or [] if st.get("source") == "user"), "")
     out = [f"<task>\n{clip(asked, 3000, 1000)}\n</task>"]

@@ -23,13 +23,14 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, Sequence
+from collections.abc import Callable, Sequence
+from typing import Any
 
 from fathom.analysis import digest
 from fathom.reading import clip
 
 PARTS = ("thought", "call", "result")
-OWN = (24_000, 6_000)  # the agent's own text is embedded whole, short of this
+OWN = (24_000, 6_000)  # the agent's own text is kept whole, short of this
 BACK = (1_000, 1_000)  # of each tool result, its first and last characters
 BATCH = 256  # tags embedded in one call
 
@@ -64,8 +65,8 @@ def texts(trajectory: dict) -> tuple[list[int], dict[str, list[str]]]:
 
 
 class OpenRouter:
-    """An embedder that asks OpenRouter. The default is the one Diver's maps were measured with:
-    Qwen3-Embedding-8B at 1024 dimensions, served by Nebius."""
+    """An embedder that asks OpenRouter. The default is Qwen3-Embedding-8B at 1024 dimensions,
+    served by Nebius."""
 
     def __init__(self, model: str = "qwen/qwen3-embedding-8b", dimensions: int | None = 1024, provider: str | None = "nebius",
                  key: str | None = None) -> None:

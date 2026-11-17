@@ -1,4 +1,4 @@
-"""Analysing rollouts: an agent's attempt at a task, with its mistakes flagged and its turns embedded,
+"""Analysing rollouts: an agent's attempt at a task, with its mistakes flagged and its turns tagged,
 and groups of them."""
 
 from fathom.embedding import PARTS, OpenRouter

@@ -24,7 +24,8 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Iterable, Iterator, Sequence
+from collections.abc import Callable, Iterable, Iterator, Sequence
+from typing import Any
 
 from fathom import analysis, clustering, embedding, reading, tagging
 from fathom.rollout import PARTS, Rollout, Turn, clock, covered

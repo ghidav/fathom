@@ -17,7 +17,8 @@ import json
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from collections.abc import Iterable, Sequence
+from typing import Any
 
 from fathom import embedding, reading, tagging
 from fathom.analysis import digest

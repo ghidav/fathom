@@ -114,7 +114,6 @@ group.by("task")                   # {task: Group}
 - `by(label)` splits the group into a sub-group for each value of a label. A group has a folder for
   its own results (`path`; a job's group has the job's folder), and a sub-group gets
   `<label>/<value>` under it.
-
 - `table()` gives a row for each turn of each member: its `rollout`, the rollout's labels and outcome
   (`solved`, `reward`, `failed_by`), the `turn`'s step id, its `seconds` and tokens, its three tags,
   its cluster for each part clustered (`thought_cluster`, ...), and the worst flagged mistake that
@@ -212,11 +211,12 @@ description (17 Nov 2026).
 
 ### Clusters of turns
 
-`cluster(part="thought")` groups the turns of all the group's rollouts by what their
-tag for a part reads like. Where a kind of mistake says what went wrong, a cluster says what the
-agent was doing, wrong or not. No model is asked and nothing is spent: the tags' saved vectors are
-grouped, and a cluster is named by the tag nearest its middle and keeps the five nearest. The layer is `group.clusters[part]`, saved as `clusters.<part>.json` in
-the group's folder under the same `save` and `overwrite` flags as the other layers.
+`cluster(part="thought")` groups the turns of all the group's rollouts by what their tag for a
+part reads like. Where a kind of mistake says what went wrong, a cluster says what the agent was
+doing, wrong or not. No model is asked and nothing is spent: the tags' saved vectors are grouped,
+and a cluster is named by the tag nearest its middle and keeps the five nearest. The layer is
+`group.clusters[part]`, saved as `clusters.<part>.json` in the group's folder under the same `save`
+and `overwrite` flags as the other layers.
 
 - Every member must be tagged and embedded first, and the group needs at least 500 tagged turns for
   the part. It needs the `cluster` extra (numpy, scikit-learn, umap-learn).
@@ -273,9 +273,8 @@ Tagging the 80 rollouts of one run (1,902 turns) with Claude Haiku 5.5 took 107 
 calls whose tool says what they do, 212 had a tag that said so. At low effort the same run cost
 $0.23, but 9% of the calls got no tag or the tag of the call before. Even at high effort it left
 every result untagged in 1 of the 80 rollouts, so a reader that gives a part no tag at all is asked
-once more. On that run a description
-searched among the embedded thought tags put 18 of 22 known turns in the top 22, where the vectors
-of the thinking itself put 0 to 3 (16 Nov 2026).
+once more. On that run a description searched among the embedded thought tags put 18 of 22 known
+turns in the top 22, where the vectors of the thinking itself put 0 to 3 (16 Nov 2026).
 
 ## Tests
 

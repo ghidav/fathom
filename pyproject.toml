@@ -3,9 +3,7 @@ name = "fathom-rollouts"  # `fathom` on PyPI is another library; the module is s
 version = "0.1.0"
 description = "Analyse agent rollouts: flag their mistakes, and tag, search and cluster their turns, in layers kept beside the ATIF trajectory"
 readme = "README.md"
-authors = [
-    { name = "ghidav", email = "davide.ghilardi0@gmail.com" }
-]
+authors = [{ name = "Davide Ghilardi" }]
 requires-python = ">=3.12"
 dependencies = []
 
