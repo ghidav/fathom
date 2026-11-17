@@ -16,6 +16,9 @@ for turn in rollout.turns:     # the enriched trajectory
     turn.id, turn.text, turn.seconds, turn.sampled, turn.context, turn.mistakes, turn.tags, turn.vectors
 ```
 
+The distribution is named `fathom-rollouts`, since `fathom` on PyPI is another library; the module
+is `fathom`. Its extras are `api` (tagging), `embed` (embedding and search) and `cluster`.
+
 An agent that answers questions about a run with fathom has a skill for it:
 [`skills/fathom/SKILL.md`](skills/fathom/SKILL.md), which says how to load a run, which layers a
 question needs and what they cost, and how to count from the table without being misled.

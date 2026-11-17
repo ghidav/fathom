@@ -1,5 +1,5 @@
 [project]
-name = "fathom"
+name = "fathom-rollouts"  # `fathom` on PyPI is another library; the module is still `fathom`
 version = "0.1.0"
 description = "Analyse agent rollouts: flag their mistakes, and tag, search and cluster their turns, in layers kept beside the ATIF trajectory"
 readme = "README.md"
@@ -22,6 +22,9 @@ dev = [
     "scikit-learn>=1.3",
     "umap-learn>=0.6",
 ]
+
+[tool.uv.build-backend]
+module-name = "fathom"
 
 [build-system]
 requires = ["uv_build>=0.11.2,<0.12.0"]

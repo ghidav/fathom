@@ -207,7 +207,7 @@ class ClaudeAPI:
         try:
             import anthropic
         except ImportError:
-            raise RuntimeError("the Claude API reader needs the anthropic package: install fathom with its `api` extra") from None
+            raise RuntimeError("the Claude API reader needs the anthropic package: install `fathom-rollouts[api]`") from None
         if not (key or os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
             raise RuntimeError("no ANTHROPIC_API_KEY: set it, or pass a key, or a reader of your own")
         self.name, self.effort, self.max_tokens = model, effort, max_tokens

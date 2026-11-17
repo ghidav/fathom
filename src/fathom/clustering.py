@@ -29,7 +29,7 @@ SHOWN = 5  # tags a cluster is known by
 def missing() -> str | None:
     """Why clustering cannot run here, if it cannot."""
     if any(importlib.util.find_spec(m) is None for m in ("numpy", "sklearn", "umap")):
-        return "clustering needs numpy, scikit-learn and umap-learn: install fathom with its `cluster` extra"
+        return "clustering needs numpy, scikit-learn and umap-learn: install `fathom-rollouts[cluster]`"
     return None
 
 
